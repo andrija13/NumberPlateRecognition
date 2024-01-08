@@ -9,6 +9,7 @@ using System.Linq;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace NumberPlateRecognition
 {
@@ -22,10 +23,11 @@ namespace NumberPlateRecognition
             SVMClassification SVM = new SVMClassification("SVM.xml");
             OCRecognition OCR = new OCRecognition("hrv+eng");
 
-            for (int i = 0; i < 54; i++)
+            for (int i = 0; i <= 5; i++)
             {
-                var imagePath = "C:\\Users\\andrija.milosavljevi\\OneDrive - Coming Computer Engineering\\Desktop\\Master\\SIR1\\Test slike\\seat" + i + ".jpg";
-                Image<Bgr, Byte> originalImage = new Image<Bgr, Byte>(imagePath);
+                //var imagePath = "C:\\Users\\andrija.milosavljevi\\OneDrive - Coming Computer Engineering\\Desktop\\Master\\SIR1\\Trening slike\\auto" + i + ".jpg";
+                var imagePath = "..\\..\\Test slike\\auto" + i + ".jpg";
+                Image<Bgr, Byte> originalImage = new Image<Bgr, Byte>(Path.GetFullPath(imagePath));
 
                 // Segmentacija
                 var possibleRegions = DetectRegion.ExtractSegments(originalImage);

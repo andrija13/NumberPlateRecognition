@@ -14,8 +14,8 @@ namespace NumberPlateRecognition
 
         static void Main(string[] args)
         {
-            string pathPlates = "C:\\Users\\andrija.milosavljevi\\source\\repos\\NumberPlateRecognition\\NumberPlateRecognition\\TrainingPicturesSVM\\Plate";
-            string pathNoPlates = "C:\\Users\\andrija.milosavljevi\\source\\repos\\NumberPlateRecognition\\NumberPlateRecognition\\TrainingPicturesSVM\\NoPlate";
+            string pathPlates = "..\\..\\TrainingPicturesSVM\\Plate";
+            string pathNoPlates = "..\\..\\TrainingPicturesSVM\\NoPlate";
             int imageWidth = 144;
             int imageHeight = 33;
 
@@ -51,8 +51,6 @@ namespace NumberPlateRecognition
                 Mat trainingLabelsMat = new Mat(trainingLabels.Count, 1, DepthType.Cv32S, 1);
                 trainingLabelsMat.SetTo(trainingLabels.ToArray());
                 trainingLabelsMat.CopyTo(classes);
-
-                //model.Train(trainingData, DataLayoutType.RowSample, trainingLabelsMat);
 
                 using (FileStorage fs = new FileStorage("SVM.xml", FileStorage.Mode.Write))
                 {
