@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberPlateRecognition", "NumberPlateRecognition\NumberPlateRecognition.csproj", "{B0DA4EF3-5BEA-4434-8213-847D27F5A861}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0DA4EF3-5BEA-4434-8213-847D27F5A861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0DA4EF3-5BEA-4434-8213-847D27F5A861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0DA4EF3-5BEA-4434-8213-847D27F5A861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0DA4EF3-5BEA-4434-8213-847D27F5A861}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A501FF7-F227-40A2-BB5B-0B0604A9989F}
+	EndGlobalSection
+EndGlobal
