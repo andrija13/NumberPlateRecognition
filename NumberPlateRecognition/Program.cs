@@ -23,11 +23,13 @@ namespace NumberPlateRecognition
             SVMClassification SVM = new SVMClassification("SVM.xml");
             OCRecognition OCR = new OCRecognition("hrv+eng");
 
-            for (int i = 0; i <= 5; i++)
+            for (int i = 1; i < 5; i++)
             {
                 //var imagePath = "C:\\Users\\andrija.milosavljevi\\OneDrive - Coming Computer Engineering\\Desktop\\Master\\SIR1\\Trening slike\\auto" + i + ".jpg";
                 var imagePath = "..\\..\\Test slike\\auto" + i + ".jpg";
                 Image<Bgr, Byte> originalImage = new Image<Bgr, Byte>(Path.GetFullPath(imagePath));
+                viewer.Image = originalImage;
+                viewer.ShowDialog();
 
                 // Segmentacija
                 var possibleRegions = DetectRegion.ExtractSegments(originalImage);

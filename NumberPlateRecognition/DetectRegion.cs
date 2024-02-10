@@ -27,32 +27,53 @@ namespace NumberPlateRecognition
             // Grayscale
             Image<Gray, Byte> grayImage = inputImage.Convert<Gray, Byte>();
             Image<Gray, Byte> img = grayImage;
-            img.Save("grayscale.jpg");
+            if (saveSegments)
+            {
+                img.Save("grayscale.jpg");
+            }
 
             // Gaussian blur
             CvInvoke.GaussianBlur(img, img, new Size(5, 5), 0, 0);
-            img.Save("gaussian.jpg");
+            if (saveSegments)
+            {
+                img.Save("gaussian.jpg");
+            }
 
             // Treshold
             CvInvoke.Threshold(img, img, 0, 255, ThresholdType.Otsu | ThresholdType.Binary);
-            img.Save("treshold.jpg");
+            if (saveSegments)
+            {
+                img.Save("treshold.jpg");
+            }
 
             // Sobel
             CvInvoke.Sobel(img, img, DepthType.Cv8U, 1, 0); // x derivative
-            img.Save("sobel.jpg");
+            if (saveSegments)
+            {
+                img.Save("sobel.jpg");
+            }
 
             // Close/open morphological operation
-            var structureElement = CvInvoke.GetStructuringElement(ElementShape.Rectangle, new Size(25, 7), new Point(-1, -1)); // najveci razmak izmedju karaktera
+            var structureElement = CvInvoke.GetStructuringElement(ElementShape.Rectangle, new Size(25, 7), new Point(-1, -1));
             CvInvoke.MorphologyEx(img, img, MorphOp.Close, structureElement, new Point(-1, -1), 2, BorderType.Default, new MCvScalar());
-            img.Save("erosion.jpg");
+            if (saveSegments)
+            {
+                img.Save("erosion.jpg");
+            }
 
-            structureElement = CvInvoke.GetStructuringElement(ElementShape.Rectangle, new Size(5, 13), new Point(-1, -1)); // 
+            structureElement = CvInvoke.GetStructuringElement(ElementShape.Rectangle, new Size(5, 13), new Point(-1, -1));
             CvInvoke.MorphologyEx(img, img, MorphOp.Open, structureElement, new Point(-1, -1), 2, BorderType.Default, new MCvScalar());
-            img.Save("erosion1.jpg");
+            if (saveSegments)
+            {
+                img.Save("erosion1.jpg");
+            }
 
-            structureElement = CvInvoke.GetStructuringElement(ElementShape.Rectangle, new Size(50, 5), new Point(-1, -1)); //
+            structureElement = CvInvoke.GetStructuringElement(ElementShape.Rectangle, new Size(50, 5), new Point(-1, -1));
             CvInvoke.MorphologyEx(img, img, MorphOp.Open, structureElement, new Point(-1, -1), 2, BorderType.Default, new MCvScalar());
-            img.Save("erosion2.jpg");
+            if (saveSegments)
+            {
+                img.Save("erosion2.jpg");
+            }
 
             // Finding contours - potential regions
             VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();

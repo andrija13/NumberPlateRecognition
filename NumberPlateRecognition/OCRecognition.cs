@@ -46,7 +46,10 @@ namespace NumberPlateRecognition
             // Treshold
             Mat imgTreshold = new Mat();
             CvInvoke.Threshold(input, imgTreshold, 60, 255, ThresholdType.BinaryInv);
-            imgTreshold.Save("OCRtreshold.jpg");
+            if (saveSegments)
+            {
+                imgTreshold.Save("OCRtreshold.jpg");
+            }
 
             // Find contours
             Mat imgContours = new Mat();
@@ -109,10 +112,16 @@ namespace NumberPlateRecognition
                 }
             }
 
-            imageViewer.Image = result;
-            imageViewer.ShowDialog();
+            if (showSegments)
+            {
+                imageViewer.Image = result;
+                imageViewer.ShowDialog();
+            }
 
-            result.Save("OCRcontours.jpg");
+            if (saveSegments)
+            {
+                result.Save("OCRcontours.jpg");
+            }
 
             return output;
         }
